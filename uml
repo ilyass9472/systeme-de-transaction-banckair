@@ -1,0 +1,37 @@
+classDiagram
+    class Wallet {
+        -id: int
+        -balance: float
+    }
+    
+    class Utilisateur {
+        -id: int
+        -firstname: string
+        -lastname: string
+        -email: string
+        -password: string
+        -img: string
+    }
+    
+    class Transaction {
+        -id: int
+        -date: Date
+        -amount: float
+        -description: string
+        -senderWalletId: int
+        -receiverWalletId: int
+    }
+    
+    class Role {
+        -id: int
+        -name: string
+    }
+    
+    Utilisateur "1" -- "1" Wallet: owns
+    Utilisateur "1" -- "1..*" Role: has
+    Transaction "*" -- "1" Wallet: sentBy
+    Transaction "*" -- "1" Wallet: receivedBy
+
+
+
+     
