@@ -13,4 +13,21 @@ class Wallet extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function sendMoney($sold,$montantEnvoyer){
+
+        if()
+            {
+
+        }elseif(0 < $montantEnvoyer || $montantEnvoyer <= $sold)
+            {
+
+            return response()->json(
+                [
+                    'message'=>'sold isefusant'
+                ],400
+                );
+
+        }
+
+    }
 }
