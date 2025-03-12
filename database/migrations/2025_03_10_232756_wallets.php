@@ -17,10 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('balance', 10, 2)->default(value: 0);
+            $table->boolean('kyc_verified')->default(false);
+            $table->boolean('status')->default(true);
+            $table->decimal('montanEnvoyer', 10, 2)->default(0);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

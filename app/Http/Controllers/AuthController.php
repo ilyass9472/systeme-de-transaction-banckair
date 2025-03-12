@@ -39,7 +39,7 @@ class AuthController extends Controller
 }catch(\Exception $e){
     // dd($e->getMessage());
     return response()->json([
-        'message'=> 'there is something wrong in creation du user pls resoudre votre probléeme'. $e->getMessage()
+        'message'=> 'there is something wrong in creation du user pls resoudre votre probléeme \n'. $e->getMessage()
     ],500);
     
 }
@@ -59,7 +59,7 @@ public function login(Request $request)
     }
 
     $token = $user->createToken('auth_token')->plainTextToken;
-    return response()->json(['token' => $token], 200);
+    return response()->json(['token' => $token], status: 200);
 }
 
 public function logout(Request $request)

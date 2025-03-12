@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WalletController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,6 +16,8 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/hello', [AuthController::class, 'test']);
+
+Route::post('/wallet/update-sold', [WalletController::class, 'updateSold']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
