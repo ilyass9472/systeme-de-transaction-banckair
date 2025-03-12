@@ -45,12 +45,12 @@ class WalletController extends Controller
                 ], 403);
             }
 
-            // Deduct the amount from the sender's wallet
+            
             $wallet->balance -= $request->montantEnvoyer;
             $wallet->save();
 
-            // Update the receiver's wallet
-            $walletReceiver = Wallet::where('user_id', $request->email)->first(); // Assuming you meant to send to another user with the same email
+            
+            $walletReceiver = Wallet::where('user_id', $request->email)->first();
             if ($walletReceiver) {
                 $walletReceiver->balance += $request->montantEnvoyer;
                 $walletReceiver->save();
@@ -68,7 +68,7 @@ class WalletController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'error' => $e->getMessage()
-            ], 500); // You can adjust the error code accordingly
+            ], 500);
         }
     }
 }
